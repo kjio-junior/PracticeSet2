@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+  <title>Bloom · Registration</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', 'Segoe UI', Roboto, system-ui, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(145deg, #f9f3e8 0%, #ffe9ce 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.2rem;
+    }
+
+    .card {
+      background: rgba(255, 255, 245, 0.85);
+      backdrop-filter: blur(12px);
+      width: 100%;
+      max-width: 750px;
+      border-radius: 36px;
+      box-shadow: 0 20px 40px rgba(201, 143, 79, 0.12), 
+                  0 8px 16px rgba(255, 215, 175, 0.2);
+      padding: 2.2rem 2rem;
+      border: 1px solid rgba(255, 255, 255, 0.6);
+    }
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 600;
+      color: #5e3c28;
+      letter-spacing: -0.5px;
+      margin-bottom: 0.35rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    h1 span {
+      background: #e9b384;
+      width: 10px;
+      height: 10px;
+      display: inline-block;
+      border-radius: 50%;
+      box-shadow: 0 0 0 3px #f5d7b3;
+    }
+
+    .sub {
+      color: #aa7a5c;
+      font-weight: 400;
+      font-size: 0.95rem;
+      border-bottom: 2px solid #f3d1b2;
+      padding-bottom: 1.2rem;
+      margin-bottom: 1.8rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .form-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1.4rem;
+    }
+
+    .input-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.4rem;
+    }
+
+    .input-group {
+      flex: 1 1 calc(50% - 0.7rem);
+      min-width: 200px;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .input-group.full-width {
+      flex: 1 1 100%;
+    }
+
+    label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #8d6e5a;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      margin-left: 4px;
+    }
+
+    .req-symbol {
+      color: #c0553a;
+      font-size: 1rem;
+      margin-left: 3px;
+    }
+
+    /* General Input Styling */
+    input, select {
+      background: #ffffff;
+      border: none;
+      border-left: 4px solid transparent;
+      border-radius: 14px;
+      padding: 1rem 1.4rem;
+      font-size: 0.95rem;
+      color: #5e3c28;
+      transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
+      outline: none;
+      width: 100%;
+      box-shadow: 0 4px 10px rgba(220, 190, 170, 0.15), 
+                  0 1px 3px rgba(220, 190, 170, 0.1);
+    }
+
+    input:focus, select:focus {
+      background: #fffbf8;
+      border-left-color: #dcb38e;
+      box-shadow: 0 8px 20px rgba(200, 150, 120, 0.2), 
+                  0 2px 5px rgba(200, 150, 120, 0.1);
+      transform: translateY(-2px);
+    }
+
+    input::placeholder {
+      color: #d4bbae;
+    }
+
+    input.error {
+      border-left-color: #dc6b4b;
+      background: #fffcfb;
+      box-shadow: 0 4px 10px rgba(220, 107, 75, 0.1);
+    }
+
+    .validation-hint {
+      font-size: 0.75rem;
+      margin-top: 0.2rem;
+      margin-left: 0.5rem;
+      color: #c5705a;
+      font-weight: 500;
+      min-height: 1rem;
+    }
+
+    /* Date Input Specifics */
+    input[type="date"] {
+      font-family: 'Poppins', 'Segoe UI', Roboto, sans-serif;
+      color: #5e3c28;
+      min-height: 3.2rem;
+    }
+    
+    input[type="date"]::-webkit-calendar-picker-indicator {
+      background: transparent;
+      color: #a47148;
+      cursor: pointer;
+      padding: 0.5rem;
+      border-radius: 50%;
+      opacity: 0.6;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23a47148' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='4' width='18' height='18' rx='2' ry='2'%3E%3C/rect%3E%3Cline x1='16' y1='2' x2='16' y2='6'%3E%3C/line%3E%3Cline x1='8' y1='2' x2='8' y2='6'%3E%3C/line%3E%3Cline x1='3' y1='10' x2='21' y2='10'%3E%3C/line%3E%3C/svg%3E");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 1.2rem;
+    }
+    
+    input[type="date"]::-webkit-calendar-picker-indicator:hover {
+      opacity: 1;
+      background-color: #f5e3d6;
+    }
+
+    /* --- PASSWORD WRAPPER & BUTTON FIX --- */
+    .password-wrapper {
+      position: relative;
+      width: 100%;
+      display: flex; /* Ensures the input fills the wrapper */
+      align-items: center;
+    }
+
+    .password-wrapper input {
+      width: 100%;
+      padding-right: 3.5rem; /* Space for the button inside */
+    }
+
+    .eye-btn {
+      position: absolute;
+      right: 12px; /* Positioned inside right edge */
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 6px;
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      transition: background-color 0.2s;
+      z-index: 2; /* Sits on top of input */
+    }
+
+    .eye-btn svg {
+      width: 20px;
+      height: 20px;
+      stroke: #a47148;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      transition: stroke 0.2s;
+    }
+
+    .eye-btn:hover {
+      background-color: rgba(181, 131, 90, 0.15);
+    }
+    
+    .eye-btn:hover svg {
+      stroke: #8d6e5a;
+    }
+    /* ------------------------------------- */
+
+    .checkbox-group {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      padding: 0.5rem 0.5rem;
+      margin-top: 0.2rem;
+    }
+
+    .checkbox-group label {
+      font-size: 0.95rem;
+      color: #7a624f;
+      font-weight: 500;
+      margin-bottom: 0;
+      cursor: pointer;
+    }
+
+    .checkbox-group input {
+      width: 22px;
+      height: 22px;
+      accent-color: #a47148;
+      margin: 0;
+      border-radius: 6px;
+      padding: 0;
+      box-shadow: none;
+      border: 2px solid #e0c8b6;
+      cursor: pointer;
+    }
+
+    button[type="submit"] {
+      background: linear-gradient(135deg, #b5835a 0%, #a47148 100%);
+      border: none;
+      padding: 1.1rem 2rem;
+      width: 100%;
+      border-radius: 16px;
+      color: white;
+      font-weight: 600;
+      font-size: 1.1rem;
+      letter-spacing: 0.5px;
+      margin-top: 1.5rem;
+      transition: all 0.2s ease;
+      box-shadow: 0 10px 20px rgba(164, 113, 72, 0.25);
+      cursor: pointer;
+    }
+
+    button[type="submit"]:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 28px rgba(164, 113, 72, 0.3);
+      filter: brightness(105%);
+    }
+
+    button[type="submit"]:active {
+      transform: translateY(1px);
+      box-shadow: 0 5px 10px rgba(164, 113, 72, 0.2);
+    }
+
+    .login-link {
+      text-align: center;
+      margin-top: 1.8rem;
+      font-size: 0.95rem;
+      color: #8d7566;
+    }
+
+    .login-link a {
+      color: #b5835a;
+      font-weight: 700;
+      text-decoration: none;
+      border-bottom: 2px solid rgba(181, 131, 90, 0.3);
+      padding-bottom: 1px;
+      transition: border-color 0.2s;
+    }
+
+    .login-link a:hover {
+      border-bottom-color: #b5835a;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px dashed #dec3a6;
+      margin: 1rem 0 0.5rem;
+      opacity: 0.6;
+    }
+
+    .note {
+      font-size: 0.75rem;
+      color: #b09a8b;
+      margin-top: 0.5rem;
+      text-align: center;
+    }
+
+    @media (max-width: 550px) {
+      .input-group {
+        flex: 1 1 100%;
+      }
+      .card {
+        padding: 1.8rem;
+        border-radius: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>
+      <span></span> Register
+    </h1>
+    <div class="sub">
+      <span>Personal Information</span>
+      <span style="font-size: 0.75rem;">* Required</span>
+    </div>
+
+    <form id="registrationForm" novalidate>
+      <div class="form-grid">
+        <div class="input-row">
+          <div class="input-group">
+            <label>First Name <span class="req-symbol">*</span></label>
+            <input type="text" id="firstName" placeholder="E.g. Kevin">
+            <div id="firstNameError" class="validation-hint"></div>
+          </div>
+          <div class="input-group">
+            <label>Last Name <span class="req-symbol">*</span></label>
+            <input type="text" id="lastName" placeholder="E.g. Duran">
+            <div id="lastNameError" class="validation-hint"></div>
+          </div>
+        </div>
+
+        <div class="input-row">
+          <div class="input-group">
+            <label>Username <span class="req-symbol">*</span></label>
+            <input type="text" id="username" placeholder="Kevin_88">
+            <div id="usernameError" class="validation-hint"></div>
+          </div>
+          <div class="input-group">
+            <label>Phone Number</label>
+            <input type="tel" id="phone" placeholder="+638393672531">
+            <div id="phoneError" class="validation-hint"></div>
+          </div>
+        </div>
+
+        <div class="input-row">
+          <div class="input-group">
+            <label>E-Mail <span class="req-symbol">*</span></label>
+            <input type="email" id="email" placeholder="Hello@Bloom.Com">
+            <div id="emailError" class="validation-hint"></div>
+          </div>
+          <div class="input-group">
+            <label>Gender</label>
+            <select id="gender">
+              <option value="" disabled selected>-- Select --</option>
+              <option value="female">Female</option>
+              <option value="male">Male</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="input-group full-width">
+          <label>Date Of Birth <span class="req-symbol">*</span></label>
+          <input type="date" id="dobPicker" value="">
+          <div id="dobError" class="validation-hint"></div>
+        </div>
+
+        <div class="input-row">
+          <div class="input-group full-width">
+            <label>Country</label>
+            <select id="country">
+              <option value="" disabled selected>-- Select Country --</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="input-row">
+          <div class="input-group full-width">
+            <label>Home Address</label>
+            <input type="text" id="homeAddress" placeholder="Street, City">
+          </div>
+        </div>
+
+        <div class="input-row">
+          <div class="input-group">
+            <label>Password <span class="req-symbol">*</span></label>
+            <div class="password-wrapper">
+              <input type="password" id="password" placeholder="At Least 6 Characters">
+              <button type="button" id="revealPasswordBtn" class="eye-btn" title="Show Password">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+              </button>
+            </div>
+            <div id="passwordError" class="validation-hint"></div>
+          </div>
+          <div class="input-group">
+            <label>Confirm Password <span class="req-symbol">*</span></label>
+            <div class="password-wrapper">
+              <input type="password" id="confirmPassword" placeholder="Retype Password">
+              <button type="button" id="revealConfirmBtn" class="eye-btn" title="Show Password">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+              </button>
+            </div>
+            <div id="confirmError" class="validation-hint"></div>
+          </div>
+        </div>
+
+        <div class="checkbox-group">
+          <input type="checkbox" id="termsCheckbox">
+          <label for="termsCheckbox">I Agree With The Terms & Conditions.</label>
+        </div>
+        <div id="termsError" class="validation-hint" style="margin-left: 0.8rem;"></div>
+
+        <div class="checkbox-group">
+          <input type="checkbox" id="offersCheckbox">
+          <label for="offersCheckbox">Receive Best Offers And Updates.</label>
+        </div>
+
+        <hr>
+        
+        <button type="submit">Register</button>
+        
+        <div class="login-link">
+          Already Have An Account? <a href="#">Login</a>
+        </div>
+        
+        <div class="note">
+          * First & Last Name: Letters Only · Username: Letters, Numbers, Underscore
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    const form = document.getElementById('registrationForm');
+    const firstName = document.getElementById('firstName');
+    const lastName = document.getElementById('lastName');
+    const username = document.getElementById('username');
+    const phone = document.getElementById('phone');
+    const email = document.getElementById('email');
+    const dobPicker = document.getElementById('dobPicker');
+    const countrySelect = document.getElementById('country');
+    const password = document.getElementById('password');
+    const confirmPassword = document.getElementById('confirmPassword');
+    const termsCheckbox = document.getElementById('termsCheckbox');
+    const revealPasswordBtn = document.getElementById('revealPasswordBtn');
+    const revealConfirmBtn = document.getElementById('revealConfirmBtn');
+
+    const firstNameErr = document.getElementById('firstNameError');
+    const lastNameErr = document.getElementById('lastNameError');
+    const usernameErr = document.getElementById('usernameError');
+    const phoneErr = document.getElementById('phoneError');
+    const emailErr = document.getElementById('emailError');
+    const dobErr = document.getElementById('dobError');
+    const passwordErr = document.getElementById('passwordError');
+    const confirmErr = document.getElementById('confirmError');
+    const termsErr = document.getElementById('termsError');
+
+    // SVG strings
+    const iconEye = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>`;
+    const iconEyeOff = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path><line x1="1" y1="1" x2="23" y2="23"></line></svg>`;
+
+    const countries = [
+      "Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Antigua and Barbuda", "Argentina", "Armenia", "Australia", "Austria",
+      "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bhutan",
+      "Bolivia", "Bosnia and Herzegovina", "Botswana", "Brazil", "Brunei", "Bulgaria", "Burkina Faso", "Burundi", "Côte d'Ivoire", "Cabo Verde",
+      "Cambodia", "Cameroon", "Canada", "Central African Republic", "Chad", "Chile", "China", "Colombia", "Comoros", "Congo",
+      "Costa Rica", "Croatia", "Cuba", "Cyprus", "Czech Republic", "Democratic Republic of the Congo", "Denmark", "Djibouti", "Dominica", "Dominican Republic",
+      "Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Eswatini", "Ethiopia", "Fiji", "Finland",
+      "France", "Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Greece", "Grenada", "Guatemala", "Guinea",
+      "Guinea-Bissau", "Guyana", "Haiti", "Honduras", "Hungary", "Iceland", "India", "Indonesia", "Iran", "Iraq",
+      "Ireland", "Israel", "Italy", "Jamaica", "Japan", "Jordan", "Kazakhstan", "Kenya", "Kiribati", "Kuwait",
+      "Kyrgyzstan", "Laos", "Latvia", "Lebanon", "Lesotho", "Liberia", "Libya", "Liechtenstein", "Lithuania", "Luxembourg",
+      "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Marshall Islands", "Mauritania", "Mauritius", "Mexico",
+      "Micronesia", "Moldova", "Monaco", "Mongolia", "Montenegro", "Morocco", "Mozambique", "Myanmar", "Namibia", "Nauru",
+      "Nepal", "Netherlands", "New Zealand", "Nicaragua", "Niger", "Nigeria", "North Korea", "North Macedonia", "Norway", "Oman",
+      "Pakistan", "Palau", "Palestine", "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Poland", "Portugal",
+      "Qatar", "Romania", "Russia", "Rwanda", "Saint Kitts and Nevis", "Saint Lucia", "Saint Vincent and the Grenadines", "Samoa", "San Marino", "Sao Tome and Principe",
+      "Saudi Arabia", "Senegal", "Serbia", "Seychelles", "Sierra Leone", "Singapore", "Slovakia", "Slovenia", "Solomon Islands", "Somalia",
+      "South Africa", "South Korea", "South Sudan", "Spain", "Sri Lanka", "Sudan", "Suriname", "Sweden", "Switzerland", "Syria",
+      "Taiwan", "Tajikistan", "Tanzania", "Thailand", "Timor-Leste", "Togo", "Tonga", "Trinidad and Tobago", "Tunisia", "Turkey",
+      "Turkmenistan", "Tuvalu", "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "United States", "Uruguay", "Uzbekistan", "Vanuatu",
+      "Vatican City", "Venezuela", "Vietnam", "Yemen", "Zambia", "Zimbabwe"
+    ];
+
+    countries.sort().forEach(country => {
+      const option = document.createElement('option');
+      option.value = country;
+      option.textContent = country;
+      countrySelect.appendChild(option);
+    });
+
+    function lettersOnly(value) {
+      return /^[A-Za-z]+$/.test(value);
+    }
+
+    function validUsername(value) {
+      return /^[A-Za-z0-9_]+$/.test(value);
+    }
+
+    function validEmail(value) {
+      if (value.trim() === '') return false;
+      const at = value.indexOf('@');
+      const dot = value.lastIndexOf('.');
+      return at > 0 && dot > at + 1 && dot < value.length - 1;
+    }
+
+    function setError(input, errorDiv, message) {
+      if (message) {
+        input.classList.add('error');
+        errorDiv.textContent = message;
+      } else {
+        input.classList.remove('error');
+        errorDiv.textContent = '';
+      }
+    }
+
+     function validateFirstName() {
+      const val = firstName.value;
+      if (val.trim() === '') {
+        setError(firstName, firstNameErr, 'First Name Required');
+        return false;
+      }
+      if (!/^[A-Za-z\s]+$/.test(val)) {
+        setError(firstName, firstNameErr, 'Only Letters & Spaces');
+        return false;
+      }
+      setError(firstName, firstNameErr, '');
+      return true;
+    }
+
+    function validateLastName() {
+      const val = lastName.value;
+      if (val.trim() === '') {
+        setError(lastName, lastNameErr, 'Last Name Required');
+        return false;
+      }
+      if (!lettersOnly(val)) {
+        setError(lastName, lastNameErr, 'Only Letters Allowed');
+        return false;
+      }
+      setError(lastName, lastNameErr, '');
+      return true;
+    }
+
+    function validateUsername() {
+      const val = username.value;
+      if (val.trim() === '') {
+        setError(username, usernameErr, 'Username Required');
+        return false;
+      }
+      if (!validUsername(val)) {
+        setError(username, usernameErr, 'Letters, Numbers, _ Only');
+        return false;
+      }
+      setError(username, usernameErr, '');
+      return true;
+    }
+
+    function validatePhone() {
+      const val = phone.value;
+      if (val.trim() === '') {
+        setError(phone, phoneErr, '');
+        return true;
+      }
+      const clean = val.replace(/[+\s\-()]/g, '');
+      if (!/^\d+$/.test(clean)) {
+        setError(phone, phoneErr, 'Numbers, Spaces, +, - Only');
+        return false;
+      }
+      setError(phone, phoneErr, '');
+      return true;
+    }
+
+    function validateEmail() {
+      const val = email.value;
+      if (val.trim() === '') {
+        setError(email, emailErr, 'Email Required');
+        return false;
+      }
+      if (!validEmail(val)) {
+        setError(email, emailErr, 'Valid Email: Name@Domain.Com');
+        return false;
+      }
+      setError(email, emailErr, '');
+      return true;
+    }
+
+    function validateDob() {
+      const val = dobPicker.value;
+      if (val.trim() === '') {
+        setError(dobPicker, dobErr, 'Date Of Birth Required');
+        return false;
+      }
+      setError(dobPicker, dobErr, '');
+      return true;
+    }
+
+    function validatePassword() {
+      const val = password.value;
+      if (val.trim() === '') {
+        setError(password, passwordErr, 'Password Required');
+        return false;
+      }
+      if (val.length < 6) {
+        setError(password, passwordErr, 'Minimum 6 Characters');
+        return false;
+      }
+      setError(password, passwordErr, '');
+      return true;
+    }
+
+    function validateConfirm() {
+      const pw = password.value;
+      const conf = confirmPassword.value;
+      if (conf.trim() === '') {
+        setError(confirmPassword, confirmErr, 'Confirm Your Password');
+        return false;
+      }
+      if (pw !== conf) {
+        setError(confirmPassword, confirmErr, 'Passwords Do Not Match');
+        return false;
+      }
+      setError(confirmPassword, confirmErr, '');
+      return true;
+    }
+
+    function validateTerms() {
+      if (!termsCheckbox.checked) {
+        termsErr.textContent = 'You Must Agree To The Terms';
+        termsCheckbox.classList.add('error');
+        return false;
+      } else {
+        termsErr.textContent = '';
+        termsCheckbox.classList.remove('error');
+        return true;
+      }
+    }
+
+    function togglePassword(inputField, btn) {
+      if (inputField.type === 'password') {
+        inputField.type = 'text';
+        btn.innerHTML = iconEyeOff;
+      } else {
+        inputField.type = 'password';
+        btn.innerHTML = iconEye;
+      }
+    }
+
+    revealPasswordBtn.addEventListener('click', function() {
+      togglePassword(password, revealPasswordBtn);
+    });
+
+    revealConfirmBtn.addEventListener('click', function() {
+      togglePassword(confirmPassword, revealConfirmBtn);
+    });
+
+    firstName.addEventListener('input', function() { validateFirstName(); });
+    lastName.addEventListener('input', function() { validateLastName(); });
+    username.addEventListener('input', function() { validateUsername(); });
+    phone.addEventListener('input', function() { validatePhone(); });
+    email.addEventListener('input', function() { validateEmail(); });
+    dobPicker.addEventListener('change', function() { validateDob(); });
+    password.addEventListener('input', function() { validatePassword(); validateConfirm(); });
+    confirmPassword.addEventListener('input', function() { validateConfirm(); });
+    termsCheckbox.addEventListener('change', function() { validateTerms(); });
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const validFirst = validateFirstName();
+      const validLast = validateLastName();
+      const validUser = validateUsername();
+      const validPhone = validatePhone();
+      const validEmail = validateEmail();
+      const validDob = validateDob();
+      const validPw = validatePassword();
+      const validConfirm = validateConfirm();
+      const validTerms = validateTerms();
+
+      if (validFirst && validLast && validUser && validPhone && validEmail && validDob && validPw && validConfirm && validTerms) {
+        alert('Registration Successful! Welcome!');
+        form.reset();
+        
+        password.type = 'password';
+        confirmPassword.type = 'password';
+        revealPasswordBtn.innerHTML = iconEye;
+        revealConfirmBtn.innerHTML = iconEye;
+        
+        document.querySelectorAll('input, select').forEach(el => el.classList.remove('error'));
+        document.querySelectorAll('.validation-hint').forEach(el => el.textContent = '');
+      } else {
+        alert('Registration Failed. Please Check Your Inputs.');
+      }
+    });
+  </script>
+</body>
+</html>
